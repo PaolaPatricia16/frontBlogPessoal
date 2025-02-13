@@ -1,6 +1,20 @@
-import { Link } from "react-router-dom"
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Navbar() {
+
+    const navigate = useNavigate();
+
+    const { handleLogout } = useContext(AuthContext)
+
+    function logout() {
+
+        handleLogout()
+        alert('O Usuário foi desconectado com sucesso!')
+        navigate('/')
+    }
+
     return (
         <>
         {/* w-full = width (largura) em 100% da tela */}
@@ -11,6 +25,7 @@ function Navbar() {
                {/* justify-between = posiciona os itens na horizontal e os distribui uniformemente */}
                {/* text-lg = define o tamanho da fonte e da linha */}
                 <div className="container flex justify-between text-lg font-grotesk">
+                
                    {/* Link = atribui a rota criada no App.tsx */}
                     <Link to='/home' className="text-2xl font-bold"> Blog Pessoal </Link>
                   
@@ -20,7 +35,7 @@ function Navbar() {
                         Temas
                         Cadastrar tema
                         Perfil
-                        Sair
+                        <Link to='/Login' onClick={logout} className='hover:underline'>Sair</Link>
                     </div>
                 </div>
             </div>
