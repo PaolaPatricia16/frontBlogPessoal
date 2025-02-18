@@ -53,6 +53,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(false)
     }
 
+    // Define todas as suas propriedades com os valores padrão.
     function handleLogout() {
         setUsuario({
             id: 0,
@@ -65,6 +66,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     return (
+        //Renderiza o componente AuthProvider com o contexto definido
         <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading }}>
             {children}
         </AuthContext.Provider>

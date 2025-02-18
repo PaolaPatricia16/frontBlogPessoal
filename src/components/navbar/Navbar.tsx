@@ -21,7 +21,7 @@ function Navbar() {
         {/* py = padding (borda interna) y = supeior e inferior */}
         {/* justify-center = posiciona os itens no centro do container horizontalmente */}
             <div className='w-full flex justify-center py-4
-            			   bg-indigo-950 text-[#ff007f]'>
+            			   bg-indigo-950 text-rosa-neon'>
                {/* justify-between = posiciona os itens na horizontal e os distribui uniformemente */}
                {/* text-lg = define o tamanho da fonte e da linha */}
                 <div className="container flex justify-between text-lg font-grotesk">
@@ -31,9 +31,13 @@ function Navbar() {
                   
                     {/* gap-4 = define o tamanho das lacunas entre os elementos */}
                     <div className='flex gap-4'>
+                        {/* O 'Link to=' atribui a rota definida no App.tsx */}
                         Postagens
-                        Temas
-                        Cadastrar tema
+
+                        <Link to='/temas' className="hover:underline"> Temas </Link>
+                        
+                        <Link to='/cadastrartema' className='hover:underline'>Cadastrar tema</Link>
+
                         Perfil
                         <Link to='/Login' onClick={logout} className='hover:underline'>Sair</Link>
                     </div>

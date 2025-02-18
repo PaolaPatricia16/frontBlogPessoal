@@ -9,6 +9,9 @@ export default {
       fontFamily:{
         grotesk: ['Space Grotesk', 'sans-serif'],
       },
+      colors: {
+        'rosa-neon': '#FF1D6C', // Usando variáveis CSS
+      },
     },
   },
   plugins: [],

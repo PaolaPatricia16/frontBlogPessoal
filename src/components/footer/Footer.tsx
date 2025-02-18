@@ -7,7 +7,7 @@ function Footer() {
 
     return (
         <>
-            <div className="flex justify-center bg-indigo-950 text-[#ff007f] font-grotesk">
+            <div className="flex justify-center bg-indigo-950 text-rosa-neon font-grotesk">
                 {/*flex-col = define que os itens serão flexiveis e que estarão posicionados na vertical  */}
                 <div className="container flex flex-col items-center py-4">
                     <p className='text-xl font-semibold'>
