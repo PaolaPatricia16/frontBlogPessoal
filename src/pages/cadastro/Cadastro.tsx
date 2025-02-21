@@ -70,13 +70,22 @@ function Cadastro() {
   return (
     <>
     {/* place-... = justifica e alinha os elementos em um container */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-screen 
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen 
             place-items-center font-bold">
-        <div className="fundoCadastro hidden lg:block"></div>
+      
+
+        <div className=" w-full flex justify-center lg:justify-end overflow-hidden" >
+                <img
+                            src="https://ik.imagekit.io/pphc/y2k-website-window-illustration.jpg?updatedAt=1740103521549"
+                            alt="Imagem Página Login"
+                        
+                ></img>
+        </div>
+
         <form className='flex justify-center items-center flex-col w-2/3 gap-3 font-grotesk' onSubmit={cadastrarNovoUsuario} >
-          <h2 className='text-indigo-900 text-5xl'>Cadastrar</h2>
+          <h2 className='text-rosa-neon text-5xl'>Cadastrar</h2>
           
-          <div className="flex flex-col w-full text-indigo-900">
+          <div className="flex flex-col w-full text-rosa-neon">
             <label htmlFor="nome">Nome</label>
             <input
               type="text"
@@ -84,60 +93,60 @@ function Cadastro() {
               name="nome"
             // placeholder = é o texto que aparece na caixa antes do usuário digitar
               placeholder="Nome" 
-              className="border-2 border-rosa-neon rounded p-2"
+              className="border-2 border-rosa-neon text-indigo-950 rounded p-2"
               value = {usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
              
             />
           </div>
 
-          <div className="flex flex-col w-full text-indigo-900">
+          <div className="flex flex-col w-full text-rosa-neon">
             <label htmlFor="usuario">Usuario</label>
             <input
               type="text"
               id="usuario"
               name="usuario"
               placeholder="Usuario"
-              className="border-2 border-rosa-neon rounded p-2"
+              className="border-2 border-rosa-neon text-indigo-950 rounded p-2"
               value = {usuario.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
 
-          <div className="flex flex-col w-full text-indigo-900">
+          <div className="flex flex-col w-full text-rosa-neon">
             <label htmlFor="foto">Foto</label>
             <input
               type="text"
               id="foto"
               name="foto"
               placeholder="Foto"
-              className="border-2 border-rosa-neon rounded p-2"
+              className="border-2 border-rosa-neon text-indigo-950 rounded p-2"
               value = {usuario.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
 
-          <div className="flex flex-col w-full text-indigo-900">
+          <div className="flex flex-col w-full text-rosa-neon">
             <label htmlFor="senha">Senha</label>
             <input
               type="password"
               id="senha"
               name="senha"
               placeholder="Senha"
-              className="border-2 border-rosa-neon rounded p-2"
+              className="border-2 border-rosa-neon text-indigo-950 rounded p-2"
               value = {usuario.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
 
-          <div className="flex flex-col w-full text-indigo-900">
+          <div className="flex flex-col w-full text-rosa-neon">
             <label htmlFor="confirmarSenha">Confirmar Senha</label>
             <input
               type="password"
               id="confirmarSenha"
               name="confirmarSenha"
               placeholder="Confirmar Senha"
-              className="border-2 border-rosa-neon rounded p-2"
+              className="border-2 border-rosa-neon text-indigo-950 rounded p-2"
               value={confirmaSenha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
             />
@@ -145,15 +154,15 @@ function Cadastro() {
 
           <div className="flex justify-around w-full gap-8">
             {/* hover... = atribui uma cor quando o mouse passa por cima do elemento */}
-            <button className='rounded text-white bg-red-400 
-                  hover:bg-red-700 w-1/2 py-2' onClick={retornar}>
+            <button className='rounded text-white bg-slate-400 
+                  hover:bg-slate-950 w-1/2 py-2' onClick={retornar}>
               Cancelar
             </button>
 
             <button 
                 type='submit'
-                className='rounded text-white bg-indigo-400 
-                           hover:bg-indigo-950 w-1/2 py-2
+                className='rounded text-white bg-pink-400
+                           hover:bg-pink-700 w-1/2 py-2
                            flex justify-center' 
             >
                 {isLoading ? <RotatingLines

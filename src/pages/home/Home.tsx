@@ -1,3 +1,5 @@
+import ListaPostagens from "../../components/postagens/listapostagens/ListaPostagens"
+import ModalPostagem from "../../components/postagens/modalpostagem/ModalPostagem"
 
 function Home() {
     return (
@@ -11,26 +13,25 @@ function Home() {
                         <p className='text-xl font-grotesk' >
                             Expresse aqui seus pensamentos e opniões
                         </p>
-
-                        <div className="flex justify-around gap-4">
+                        {/* gap = define o espeçamento entre linhas e colunas  */}
+                        <div className="flex justify-around gap-4 ">
                             {/* rounded = define que o elemento irá ter bordas arredondadas em 0.25rem */}
-                            <div className='rounded text-white 
-                                            border-pink-800 border-solid border-2 py-2 px-4 font-grotesk'
-                                >
-                                Nova Postagem
+                            <div className='flex justify-around gap-4 '>
+                              <ModalPostagem />
                             </div>
                         </div>
                     </div>
 
                     <div className="flex justify-center ">
                         <img
-                            src="https://i.imgur.com/fyfri1v.png"
+                            src="https://ik.imagekit.io/pphc/freepik__adjust__26631.png"
                             alt="Imagem Página Home"
                             className='w-2/3'
                         />
                     </div>
                 </div>
             </div>
+            <ListaPostagens />
         </>
     )
 }
