@@ -4,6 +4,7 @@ import { createContext, ReactNode, useState } from "react"
 
 import UsuarioLogin from "../models/UsuarioLogin"
 import { login } from "../services/Service"
+import { ToastAlerta } from "../utils/ToastAlerta"
 
 // Define a estrutura do Contexto
 interface AuthContextProps {
@@ -15,7 +16,7 @@ interface AuthContextProps {
 }
 // Define a estrutura do Coponente Provedor
 interface AuthProviderProps {
-    // encapsula e represnta as prorpiedades FILHO
+    // encapsula e represnta as propriedades FILHO
     children: ReactNode
 }
 
@@ -45,9 +46,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             // await = indica que a operação é Assíncrona (retorna uma Promise), e a função aguardará a conclusão da operação, antes de continuar o fluxo natural.
             await login(`/usuarios/logar`, usuarioLogin, setUsuario)
-            alert("O Usuário foi autenticado com sucesso!")
+            ToastAlerta("Usuário foi autenticado com sucesso!", "sucesso")
         } catch (error) {
-            alert("Os Dados do usuário estão inconsistentes!")
+            ToastAlerta("Os dados do Usuário estão inconsistentes!", "erro")
         }
         // Altera o estado isLoading para false, indicando que o processo de autenticação foi concluído.
         setIsLoading(false)

@@ -4,6 +4,7 @@ import Usuario from '../../models/Usuario'
 import { cadastrarUsuario } from '../../services/Service'
 import './Cadastro.css'
 import { RotatingLines } from 'react-loader-spinner'
+import { ToastAlerta } from '../../utils/ToastAlerta'
 
 function Cadastro() {
 
@@ -54,15 +55,17 @@ function Cadastro() {
 
       try{
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
-        alert('Usuário cadastrado com sucesso!')
+        ToastAlerta("Usuário foi cadastrado com sucesso!", "sucesso")
       }catch(error){
-        alert('Erro ao cadastrar o usuário!')
+        ToastAlerta("Erro ao cadastrar o usuário!", "erro")
       }
-    }else{
-      alert('Dados do usuário inconsistentes! Verifique as informações do cadastro.')
-      setUsuario({...usuario, senha: ''})
-      setConfirmaSenha('')
-    }
+    }else{ 
+      if (confirmaSenha != usuario.senha && usuario.senha.length < 8) {
+        ToastAlerta("Dados do usuário ou senha inconsistentes! Verifique as informações do cadastro.", "erro")
+        setUsuario({...usuario, senha: ''})
+        setConfirmaSenha('')
+      }
+    } 
 
     setIsLoading(false)
   }
@@ -70,17 +73,11 @@ function Cadastro() {
   return (
     <>
     {/* place-... = justifica e alinha os elementos em um container */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen 
+      <div className="grid grid-cols-1 lg:grid-cols-2 h-screen 
             place-items-center font-bold">
       
 
-        <div className=" w-full flex justify-center lg:justify-end overflow-hidden" >
-                <img
-                            src="https://ik.imagekit.io/pphc/y2k-website-window-illustration.jpg?updatedAt=1740103521549"
-                            alt="Imagem Página Login"
-                        
-                ></img>
-        </div>
+      <div className="fundoCadastro hidden lg:block"></div>
 
         <form className='flex justify-center items-center flex-col w-2/3 gap-3 font-grotesk' onSubmit={cadastrarNovoUsuario} >
           <h2 className='text-rosa-neon text-5xl'>Cadastrar</h2>
