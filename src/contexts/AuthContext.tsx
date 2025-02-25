@@ -54,6 +54,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(false)
     }
 
+    
+
     // Define todas as suas propriedades com os valores padrão.
     function handleLogout() {
         setUsuario({

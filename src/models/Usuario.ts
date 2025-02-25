@@ -6,7 +6,7 @@ export default interface Usuario {
   nome: string;
   usuario: string;
   senha: string;
-  foto: string;
+  foto: string ;
   
 // campo que indica o relacionamento entre Classes.
 // ' |' = indica que pode teer maus de uma tipagem

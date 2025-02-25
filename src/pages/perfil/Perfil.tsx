@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 import { ToastAlerta } from '../../utils/ToastAlerta'
 
-// import ModalUsuario from '../../components/usuario/modalusuario/ModalUsuario'
-
 
 function Perfil() {
 
@@ -20,14 +18,7 @@ function Perfil() {
         }
     }, [usuario.token])
 
-    return (
-
-     
-
-
-          
-
-         
+    return (         
 
         <div className='container  bg-gradient-to-r from-[#b55677] to-[#d01c5b] w-5/6 mx-auto h-auto rounded-2xl overflow-hidden'>
 {/* flex flex-col  */}
@@ -44,7 +35,6 @@ function Perfil() {
             >
                 <p>Nome: {usuario.nome} </p>
                 <p>Email: {usuario.usuario}</p>
-
           
             </div>
 
